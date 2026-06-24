@@ -40,6 +40,7 @@ let score = 0;
 
 data.sort(() => Math.random() -0.5);
 
+
 printQuestionAndAns();
 
 const interval = setInterval(() => {
