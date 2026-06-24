@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Printing</title>
+
+    <style>
+        #wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 17rem;
+        }
+
+        .note textarea {
+            height: 200px;
+            width: 300px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .note #addnote {
+            background: linear-gradient(to right, #b95d7a, #d06d74, #dd7b67, #e08a5c);
+            padding: 10px 20px;
+            color: white;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .editBtn {
+            position: absolute;
+            top: 3px;
+            right: 20px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 12px;
+        }
+        .newNote{
+            position: relative;
+            height: auto;
+            width: 160px;
+            padding: 10px;
+            margin: 10px;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <div class="note">
+            <textarea id="write" placeholder="// Write Your Note Here" autofocus></textarea>
+
+            <input type="color" id="choosecolor"><br>
+
+            <button type="button" id="addnote">Add note</button>
+        </div>
+
+        <div class="outnote">
+            <h1>Your Notes</h1>
+        </div>
+    </div>
+
+
+    <script src="notesprint.js"></script>
+</body>
+
+</html>
