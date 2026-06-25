@@ -37,8 +37,11 @@ const message = document.querySelector("#message");
 let questionNumber = 0;
 let time = 5;
 let score = 0;
+let order = [];
+order = getRandomOrder();
+console.log(order);
 
-data.sort(() => Math.random() -0.5);
+// data.sort(() => Math.random() -0.5);
 
 
 printQuestionAndAns();
@@ -114,4 +117,21 @@ for (let i = 0; i < options.length; i++) {
       }
     }
   });
+}
+
+
+function getRandomOrder() {
+  for (let i = 0; i < data.length; i++) {
+    const randomNumber = getDistinctOrder();
+    order.push(randomNumber)
+  }
+  return order
+}
+
+function getDistinctOrder() {
+  const randomValue = Math.floor(Math.random() * data.length);
+  if (order.includes(randomValue)) return getDistinctOrder();
+  else {
+    return randomValue;
+  }
 }
