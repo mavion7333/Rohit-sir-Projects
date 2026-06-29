@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Value from Array</title>
+  <link rel="stylesheet" href="randomValueFromArray.css" />
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <div id="startquiz">
+      <h1>Welcome To The Quiz</h1>
+      <input type="text" placeholder="Enter Your Name" id="username">
+      <button id="startbtn">Start Quiz</button>
+    </div>
+    <div id="quiz" style="display: none;">
+      <p id="timer">5</p>
+      <h2 id="question">Question</h2>
+      <div id="options">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+      <div id="message"></div>
+
+    </div>
+    <div id="score" style="display: none;">
+      <h1></h1>
+    </div>
+  </div>
+  <script src="randomValueFromArray.js" type="module"></script>
+</body>
+
+</html>
