@@ -5,14 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>time</title>
+    <style>
+        .name,
+        .output {
+            color: blue;
+        }
+
+        .number1,
+        .number2 {
+            width: 100px;
+            margin-right: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="wrapper">
-        <button type="button" class="btn">What's the time</button>
+        <button type="button" class="btn">What's the time</button><br><br>
+        <input type="text" placeholder="Enter Your Name Here" autofocus>
+        <button class="btn2">press</button><br><br>
+
+        <input type="number" id="number1" placeholder="Number 1">
+        <input type="number" id="number2" placeholder="Number 2">
+
+        <button class="plus"> ADD</button>
+        <button class="minus"> SUBTRACT </button>
+        <button class="multiply"> MULTIPLY </button>
+        <button class="divide"> DIVIDE </button>
+
     </div>
 
     <h2 class="output"></h2>
+    <h3 class="name"></h3>
+    <h3 class="solution"></h3>
+
     <script src="time.js"></script>
 </body>
 

@@ -15,6 +15,14 @@ let questionNumber = 0;
 let time = 5;
 let score = 0;
 let order = [];
+
+const players =
+  localStorage.getItem("playersData") !== null
+    ? JSON.parse(localStorage.getItem("playersData"))
+    : [];
+
+let currentPlayerId = null;
+
 order = getRandomOrder();
 console.log(order);
 
@@ -24,14 +32,15 @@ function startTimer() {
   const interval = setInterval(() => {
 
     if (time === 0) {
-
       if (questionNumber === data.length - 1) {
-
         clearInterval(interval);
+
         quizDiv.style.display = "none";
         scoreDiv.style.display = "flex";
 
+        updateScoreLS(currentPlayerId);
         displayScore();
+
       } else {
         questionNumber++;
         time = 5;
@@ -46,23 +55,58 @@ function startTimer() {
 }
 
 
+
+//////////////////////////////////////////////////////
+
 startBtn.addEventListener("click", function () {
   if (userName.value.trim() === "") {
     alert("Please enter your name!");
     return;
   }
+
+  const player = {
+    id: Date.now(),
+    name: userName.value,
+    score: 0,
+    startTime: new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+    }),
+  };
+
+  currentPlayerId = player.id;
+  players.push(player);
+
+  localStorage.setItem("playersData", JSON.stringify(players));
+
   startQuiz.style.display = "none";
   quizDiv.style.display = "block";
 
   printQuestionAndAns();
   startTimer();
 });
+
+
+function updateScoreLS(id) {
+  const players = JSON.parse(localStorage.getItem("playersData"));
+
+  const updatedPlayers = players.map((player) => {
+    if (player.id === id) {
+      player.score = score;
+      player.endTime = new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+      });
+    }
+    return player;
+  });
+
+  localStorage.setItem("playersData", JSON.stringify(updatedPlayers));
+}
 //////////////////////////////////////////////////////////////
 
 // THIS SHOWS THE SCORE AT THE END
 function displayScore() {
 
-  scoreH1.innerHTML = `Congratulations ${username.value}<br><br>
+  scoreH1.innerHTML = `Congratulations :- ${userName.value}<br><br>
         You scored ${score} out of ${data.length}`;
 
 }
